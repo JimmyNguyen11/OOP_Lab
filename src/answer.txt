@@ -1,0 +1,9 @@
+-If we take the `Comparable` interface approach, we should have the `Media` class implement the `Comparable` interface, since it is the class that represents all types of media.
+
+To implement the `compareTo()` method in the `Media` class to reflect the ordering that we want, we can compare the media objects by their title first, then by their cost if the titles are the same.
+
+-If we use the `Comparable` interface approach, we can only have one ordering rule of the item at a time. We cannot have two different ordering rules (i.e. by title then cost, and by cost then title) for the same item using the `Comparable` interface. However, we can always use the `Collections.sort()` method with different `Comparator` objects to achieve different sorting orders.
+
+-If DVDs have a different ordering rule from other media types (i.e. by title, then decreasing length, then cost), we can create a separate `Comparator` class for DVDs that implements the `Comparable` interface, and use it to sort DVDs separately from other media types.
+
+-To use this `Comparator` class to sort DVDs, we can call the `Collections.sort()` method on the list of DVDs, and pass the `DVDComparatorByTitleLengthCost` object as the second argument.
